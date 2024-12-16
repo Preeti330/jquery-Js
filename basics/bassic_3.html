@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="color:rgb(192, 10, 10)">Events In Jquery </h1>
+    <p>Events are shows some actions on user interactions</p>
+    <p id="clickme">Click</p>
+    <p id="dblclickme">Double Click</p>
+    <p id="mouseenteron">Mouse Enter</p>
+    <p id="mouseleaveon">Mouse Leaves</p>
+    <p id="mousehover">Mouse Hover</p>
+    <p id="mouseup">Mouse Up</p>
+    <p id="mousedown">Mouse Down</p>
+    <hr><hr>
+    <h1 style="color:rgb(192, 10, 10)">Other Events  </h1>
+    <input id="focusonme" type="text" placeholder="Get Foucs">
+    <input id="bluronme" type="text" placeholder="Get Blur">
+    <p id="hideme">Click Me To Hide</p>
+    <p id="onme">Bind multiple events on elm</p>
+    <p id="bindme">Bind:send data</p>
+    <p id="bindEvent">Bind events using bind</p>
+    <p id="bindMap">Bind multiple events using bind</p>
+    <p id="bindMap">Bind multiple events using bind</p>
+    <input id="onchange" type="text" placeholder="On change">
+    <select  name="songs" id="songs">
+        <option value="0" selected>Select </option>
+        <option value="1" >Yaru enu maduvaru</option>
+        <option value="2">nangenu maduvaru</option>
+    </select>
+
+    <hr><hr>
+    <h2>What all event haev functions</h2>
+    <p>Current Traget : gets the current target is clicked</p>
+    <p>Event.target  : gets from which element its trigered now</p>
+    <span id="first">First</span>
+    <span id="second">second</span>
+    <br>
+    <hr>
+    <span id="deletegetarget">Delegate Traget : its target to current target as like CurrentTraget ,can be used as selector to perfrom some operations</span>
+    <br>
+    <p id="pageX">pageX and pageY : this are gives the cursor postion in the page </p>
+
+
+    <script >
+        // click event : on click on html element this event trigers
+        $('#clickme').click(function(){
+            alert("You clicked on me...!!!");
+        });
+
+        // when we click on element double times this event trigers
+        $('#dblclickme').dblclick(function(){
+            alert("You doubled clicked on me..!!");
+        })
+        //when mouse eneters on html element than this event get triggers
+        $('#mouseenteron').mouseenter(function(){
+            alert("On Mouse enter on element");
+        })
+
+        //when mouse leave the html element than this eveent get triggers
+        $('#mouseleaveon').mouseleave(function(){
+            alert("I triger on mouse leave from me")
+        })
+
+        //hover is combination both mouse enter and mouse leave events 
+        $('#mousehover').hover(function(){
+            alert("I triger when mouse enters me ")
+        },function(){
+            alert("I triggers when mouse leaves me");
+        });
+
+        //mouseup trigers when mouse click on right . left , middle with up 
+        $('#mouseup').mouseup(function(){
+            alert("I trigers when  mouse click with up ");
+        });
+
+        //mouse down trigers when mouse click on right,left,middle with down 
+        $('#mousedown').mousedown(function(){
+            alert("I trigers when mouse click with down");
+        })
+
+        //focus event used to get foucus on element after click or other events as well 
+        $('#focusonme').focus(function(){
+            $(this).css("border",'2px soild');
+        })
+
+        $('#bluronme').focus(function(){
+            $(this).css("background",'pink');
+        });
+
+        // hide the element when we click on element
+        $('#hideme').click(function(){
+            $(this).hide();
+        })
+
+        $('#onme').on({
+                        'click':function(){
+                            alter("hey cliked on me")
+                        },
+                        'mouseover':function(){
+                            alter("On mouse over ..!!");
+                        }
+            })
+
+        //bind is deprecated in jquery version 3 
+        //bind -> here, used to bind multiple events and send data and map events
+        //send data 
+        $('#bindme').bind('click',{msg:"hey minnale"},handleMe);
+        $('#bindEvent').bind('click',function(){
+            alert("en kannile chakkale");
+        });
+        $('#bindMap').bind({
+            'click':function(){
+                alert("Hey Minnale..!!");
+            }
+        });
+
+        function handleMe(e){
+            alert(e.data.msg);
+        }
+
+        //change - change event occours with input,textarea,select
+        $('#onchange').change(function(){
+            alert("hey You typed somethings");
+        })
+
+        $('#songs').change(function(){
+            alert("Select ID "+ $(this).val())
+        });
+
+        $('#first,#second').click(function(e){
+            alert("Current Target :"+ e.currentTarget);
+            alert("Target Event :"+e.target.id)
+        })
+
+        $('#deletegetarget').click(function(e){
+            $(e.delegateTarget).css('color','pink');
+        });
+
+        $('#pageX').on('mousemove',function(e){
+            alert(e.pageX + "-------" + e.pageY)
+        })
+       
+    </script>
+</body>
+</html>

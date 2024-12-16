@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Events</h1>
+    <p>focus : get foucus when from or input or select is triger</p>
+    <p>FoucusIn : trigers when an input gets foucus in </p>
+    <p>FoucusOut : trigers when an input get foucus out </p>
+    <input type="text" id="foucs" placeholder="Check foucs,in,out">
+    <hr>
+    <h2>$.proxy()</h2>
+    <p id="proxy">This event takes an exciting event and returns call other function or event </p>
+    <p >ready() : this event used along with document and its get excutes once the document is fully loaded. </p>
+    <p >Select occours when an text get seleceted  and it works with input and textarea</p>
+    <textarea name="" id="select">hey You know what , i am doing good..!!</textarea>
+    <p >Toggle : which binds two or more events and than its toggles between this functions , its mainly used for visibility of function like show or hide </p>
+    <button id="toggleClassButton">Toggle Highlight</button>
+    <p id="toggle">Click the button to toggle highlight on this text.</p>
+    <script>
+        $('#foucs').bind({
+            'focus':function(e){
+                    $(this).css("border","2px soild");
+            },
+            'focusin':function(e){
+                $(this).css("background-color", "#FFFFCC");
+            },
+            'focusout':function(e){
+                $(this).css("background","yellow");
+            },
+        })
+
+        // $.proxy() - which is used to ca
+        $('#proxy').click($.proxy(this.myClick,this));
+
+        function myClick(e){
+            alert("proxy can returns the other function context")
+            alert(e.target.id);
+        }
+        $(document).ready(function(e){
+            alert("Document is loaded fully..!!")
+        });
+        $('#select').select(function(){
+            alert("You selected some text ...!");
+        });
+
+        $('#toggleClassButton').mouseover(function(){
+            $('#toggle').toggle();
+        })
+    </script>
+</body>
+</html>
