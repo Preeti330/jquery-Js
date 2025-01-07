@@ -3,9 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <h1>Heyyyy</h1>
+    <h1 style="color:brown">DOM : jquery document object model </h1>
+    <p>Jquery provides many more methods to iteract with elements </p>
+    <h4>1.Get Content and Attribute : </h4>
+    <ul>
+        <li>
+            text(): use to get or set the data of element , $('#id').text();
+        </li>
+        <li>
+            html(): use to get or set the html and data  , $('#id').html();
+        </li>
+        <li>
+            val(): use to get or set value of feild  , $('#id').val();
+        </li>
+    </ul>
+    <div >
+        <p id="para">Get the Para</p><br>
+        <input id="val" value="get val"></br>
+        <p id="html">Heyyy </p></br>
+    </div>
+    <hr><hr>
+    <h4>2.Set Content and Attribute : </h4>
+    <ul>
+        <li>
+            text(): use to get or set the data of element , $('#id').text("text");
+        </li>
+        <li>
+            html(): use to get or set the html and data  , $('#id').html("<code><h2>set html</h2></code>");
+        </li>
+        <li>
+            val(): use to get or set value of feild  , $('#id').val("preeti");
+        </li>
+    </ul>
+    <div >
+        <p id="para2">Get the Para</p><br>
+        <input id="val2" value="get val"></br>
+        <p id="html2">Heyyy </p></br>
+    </div>
+
+    <hr><hr>
+
+    <h4>3.Add new html Content : </h4>
+    <ul>
+        <li>
+            append(): adds text after the selected element , $('#id').append("append text");
+        </li>
+        <li>
+            prepend(): adds text before the selected element , $('#id').prepend("append text");
+        </li>
+        <li>
+            before(): insert the text before the selected element , $('#id').before("preeti");
+        </li>
+        <li>
+            after (): insert the text after the selected element , $('#id').after("preeti");
+        </li>
+    </ul>
+    <div>
+       <p id="append">Append : </p>
+       <p id="prepend">Prepend : </p>
+       <p id="before">before : </p>
+       <p id="after">after : </p>
+    </div>
+
+    <hr><hr>
+
+    <h4>4.Jquery remove elements  : </h4>
+    <ul>
+        <li>
+            remove(): remove which remove the element and its childs.
+        </li>
+        <li>
+            empty(): which erase only its child elements.
+        </li>
+    </ul>
+    <div>
+        <p >Remove :  removies elements and its child as well </p>
+        <div id="remove" style="width: 10px;height: 50px;background-color: red;">
+            <p >Remove : </p>
+        </div>
+
+        <p >Empty :  removies elements childs</p>
+        <div id="empty" style="width: 100px;height: 100px;background-color: red;">
+            <p >Remove : </p>
+        </div>
+
+    </div>
+
+
+    <script>
+      $(document).ready(function(){
+
+        console.log("get the text :" + $('#para').text());
+        console.log("get the html :" + $('#html').html());
+        console.log("get the val :" + $('#val').html());
+
+        $('#para2').text("Some texts");
+        $('#html2').text('<p style="color:pink">Some texts</p>');
+        $('#val2').text("Some texts");
+
+
+        // append text in bulk 
+        let text1 = "<span>hey</span>";
+        let text2 = $('<span><span>').text(" preeti");
+        let text3 = document.createElement("span");
+        text3.textContent=" reddy";
+        $('#append').append(text1,text2,text3);
+
+        // prpend text in bulk which adds the text at begining of slected element 
+
+        $('#prepend').prepend('<span style="color:red">IIII</span>');
+
+        // before insert before the text can take single item or bulk of item 
+        $('#before').before('<span style="color:red">before </span>');
+                // after insert after the text can take single item or bulk of item 
+                $('#after').after('<span style="color:red">after </span>');
+
+        $('#remove').remove();
+        $('#empty').empty();
+      });
+    </script>
 </body>
 </html>

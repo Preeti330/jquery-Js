@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h6> Sublings : </h6>
+    <ul>
+        <li>sublings() : finds all sublings   </li>
+        <li>sublings('p') : finds all sublings of p</li>
+        <li>next() : returns next subling element </li>
+        <li>nextAll() : returns next all subling elements </li>
+        <li>nextUntill('tag') : returns next all subling elements till tag</li>
+        <li>prev() : returns prev subling element </li>
+        <li>prevAll() : returns prev all subling elements </li>
+        <li>prevUntill('tag') : returns prev all subling elements till tag</li>
+    </ul>
+    <div > 
+            <ul class="ancetorsP">
+                <li>
+                    <p>
+                        <span>hey Preeti</span>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <span>hey Preeti</span>
+                    </p>
+                    <p>
+                        <span>hey Preeti</span>
+                    </p>
+                    <p>
+                        <span>hey Preeti</span>
+                    </p>
+                </li>
+                
+            </ul>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            //finds all sublings
+            // $('div').siblings().css({"border": "2px solid red"});
+            //finds its h6 sublings
+            // $('div').siblings('h6').css({"border": "2px solid red"});
+            
+            $('div li').next().css({"border": "2px solid red"});
+            $('div li p').nextAll().css({"border": "2px solid pink"});
+            $('div li p').nextUntil('span').css({"border": "2px solid gray"});
+
+
+            $('div').prev().css({"border": "2px solid yellow"});
+            $('div li p').prevAll().css({"border": "2px solid orange"});
+            // $('div li p').prevUntil('span').css({"border": "2px solid black"});
+      
+       
+        })
+    </script>
+</body>
+</html>

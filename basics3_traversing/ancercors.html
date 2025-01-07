@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Traversing :</h1>
+    <p>tells that how we are reaching an desire element with help of selected element lets we can select or find the desire element and here this works on base of hirechry </p>
+    <ul>
+        <p>List Of Traversing</p>
+        <li>1.Ancerctors : gets the parents root from child </li>
+        <li>2.Descendants : gets the childs root from parents </li>
+        <li>3.Sublings : gets the sublings root from itself </li>
+    </ul>
+    <hr>
+    <hr>
+    <h6>Find Ancectors : </h6>
+    <ul>
+        <li>parent() : which find outs its immidate parent </li>
+        <li>parents() : which find outs its all prenets  </li>
+        <li>parents(h1) : which find outs its all prenets till tag  </li>
+        <li>parentsUntill() : finds parent untill the given tag </li>
+    </ul>
+    <div >
+        <div>  
+            <ul class="ancetorsP">
+                <li>
+                    <p>
+                        <span>hey Preeti</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+           $('span').parent().css({"border": "2px solid red"});
+           $('p').parents('li').css({"border": "2px solid pink"});
+           $('.ancetorsP').parentsUntil('div').css({"border": "2px solid green"});
+        })
+    </script>
+</body>
+</html>

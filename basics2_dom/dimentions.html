@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Jquery Dimentions</h1>
+    <ul>
+        <li>
+            width() : which gives the width of an element (or sets the width of an elements)
+        </li>
+        <li>
+            innerWidth()/ outerHeight() : element width + padding (or sets the width of an elements)
+        </li>
+        <li>
+            outerWidth() outerHeight(): element width + padding + border (or sets the width of an elements)
+        </li>
+        <li>
+            outerWidth(true)/outerHeight(true) : element width + padding + margin + border   (or sets the width of an elements)
+        </li>
+    </ul>
+    <hr><hr>
+    <button>Resize me</button>
+    <div style="background-color: black;height: 100px;width: 100px;" id="resize">
+
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                console.log("clieked");
+                $("#resize").width("300").height("300");
+            })
+        })
+    </script>
+</body>
+</html>

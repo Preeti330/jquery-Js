@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h6>Find Descendants : </h6>
+    <ul>
+        <li>children() : which find outs immidates child </li>
+        <li>children('p.first') : we can also filter it which child we are looking </li>
+        <li>find(selector) : which find outs its last child  and works only when we give required selector </li>
+        <li>find('*') : gives all its childs</li>
+    </ul>
+    <div >
+        <div>  
+            <ul class="ancetorsP">
+                <li>
+                    <p>
+                        <span>hey Preeti</span>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <span>hey Preeti</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+           $('li').children().css({"border": "2px solid red"});
+           $('ul').children('li:first').css({"border": "2px solid pink"});
+        //    $('div').find('*').css({"border": "2px solid green"});
+        $('div').find('ul').css({"border": "2px solid black"});
+       
+        })
+    </script>
+</body>
+</html>

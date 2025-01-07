@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h6> Filters  : </h6>
+    <ul>
+        <li>first() , last(),eq() : finds the elements on base of its postions   </li>
+        <li>filter() , not : finds the elements on base of given creteria   </li>
+        <li>first() : returns its first element </li>
+        <li>last() : returns last elements of tag </li>
+        <li>eq(index) : returns element on base of index</li>
+        <li>filter('.class') : filter the elements which meets the required cretira Ex: returns all elements with class  </li>
+        <li>not('.class') : filter the elements which not meets the required cretira Ex: returns all elements not with class  </li>
+    </ul>
+    <div > 
+            <ul class="ancetorsP">
+                <li>
+                    <p>
+                        <span>hey Preeti</span>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <span>hey Preeti</span>
+                    </p>
+                    <p>
+                        <span>hey Preeti</span>
+                    </p>
+                    <p>
+                        <span>hey Preeti</span>
+                    </p>
+                </li>
+                
+            </ul>
+    </div>
+    <div><p>Second div</p></div>
+    <div><p>Third div</p></div>
+
+    <script>
+        $(document).ready(function(){
+    
+            $('div').first().css({"border": "2px solid red","background":"gray"});
+            $('div').last().css({"border": "2px solid gray","background":"orange"});
+            $('div ul li').eq(1).css({"border": "2px solid blue","background":"pink"});
+            $('ul').filter('.ancetorsP').css({"border": "2px solid yellow"});
+            $('ul').not('.ancetorsP').css({"border": "2px solid blue"});
+        
+        })
+    </script>
+</body>
+</html>

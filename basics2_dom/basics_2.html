@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        .addclass{
+            color:pink;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jquery Css Class</h1>
+    <ul>
+        <li>
+            1. addClass : which adds class name to selected element , this class may be user defined or pre defined class $('#id').addClass("classname");
+        </li>
+        <li>
+            2. removeClass : which removes class name from selected element , this class may be user defined or pre defined class $('#id').removeClass("classname");
+        </li>
+        <li>
+            toggleClass : which toggle the same class name between all the childs elements ().toggleClass("classname")
+        </li>
+    </ul>
+    <div>
+        <p id="addclass">hey Add class </p>
+        <p id="removeclass" class="addclass">hey Add class </p>
+    </div>
+    <hr><hr>
+    <h1 id="addcss">Add Css : css() takes property: value to apply css and also we can add multiple css using {property:value,property:value}</h1>
+    <script>
+        $('#addclass').addClass("addclass");
+        $('#removeclass').removeClass("addclass");
+        $('#addclass,#removeclass').toggleClass("addclass");
+
+        $("#addcss").css("color","red");
+        $("#addcss").css({
+            "background-color": "yellow",
+            "font-size": "200%"
+        })
+
+
+    </script>
+</body>
+</html>
