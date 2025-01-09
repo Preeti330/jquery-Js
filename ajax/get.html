@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>$.get(url,callback) :</h1>
+    <p>get  - uses for fetching the data,which uses call back function which returns the response from server</p>
+    <hr>
+    <h1>$.get(url,request,callback) :</h1>
+    <p>get  - we can even pass the request data as well.</p>
+    <h1>$.get(url) :</h1>
+    <p>get  - this isnores the response just calls the api .</p>
+    
+    <hr>
+    <hr>
+  
+    <div >
+       <p>List users</p>
+       <p id="listusers">userId : </p>
+    </div>
+    <button type="button" onclick="submitBtn()">Load data</button>
+
+    <script>
+        function submitBtn(){
+        
+                $.get('https://jsonplaceholder.typicode.com/todos/1',function(responseTxt,statusTxt,xhr){
+                        console.log(responseTxt)
+                        $('#listusers').text(responseTxt['userId'])
+                })
+            }
+    </script>
+</body>
+</html>

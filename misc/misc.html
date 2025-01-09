@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Misc Properties </h1>
+    <ul>
+        <li>
+            <h5>$.noConflicts()</h5>
+            <p>They are so many JS framework so what if in case in any other framework also its using $ and if two frame
+                work are using in single application than it possible that other framework won't work ,so using
+                noConfilcts it beginings of script resolve this error</p>
+        </li>
+        <li>
+            <h5>$(selector).data(key,value)</h5>
+            <p>data is used to set the data or retrive the data using key-value ,and to remove data use
+                <i>removeData()</i></p>
+            <div></div>
+            <button type="button" onclick="submit(event)">Append & Read data </button>
+        </li>
+        <li>
+            <h5>$(selector).get(index)</h5>
+            <p>get() -> get the data on base of index , consider i am having list in that want to read second item </p>
+            <ul class="listGet">
+                <p>Example</p>
+                <li class="id1">List-1</li>
+                <li class="id1">List-2</li>
+                <li>List-3</li>
+            </ul>
+            <button type="button" onclick="submitList(event)">Get val</button>
+        </li>
+        <li>
+            <h5>index() - gets the index of current element </h5>
+            <h5>index(element) - gets the index of current element on base of element</h5>
+            <ul class="listGet1">
+                <p>Example</p>
+                <li class="id2">List-1</li>
+                <li class="id2">List-2</li>
+                <li>List-3</li>
+            </ul>
+            <button type="button" onclick="submitList2(event)">Get val</button>
+        </li>
+        <li>
+            <h5>each() : each will loop all the elements.</h5>
+        </li>
+    </ul>
+
+    <hr>
+    <hr>
+
+    <div>
+        <script>
+            function submit(e) {
+                $('div').data("check", "Appended data "); // append the data 
+                alert($('div').data("check")); // retrive data 
+                alert("Remove " + $('div').removeData("check")); // remove data
+
+            }
+            function submitList(e) {
+                // alert("get data : "+ $('.listGet').get(0));
+                console.log($('.listGet').get(0))
+            }
+
+            function submitList2(e) {
+                // console.log($('.listGet1').index('.id1')); // reads index on base of element 
+                $('.id2').each(function (index, event) {
+                    console.log(index, ',', event)
+                    console.log($(this).index() + " Indexxxx");
+                })
+
+            }
+        </script>
+</body>
+
+</html>

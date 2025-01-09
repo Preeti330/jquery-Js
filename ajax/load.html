@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ajax :</h1>
+    <p>Ajax - asycronus call request : where its helps to call the apis and update the perticular part of web page and using Jquery ajax is easy to call</p>
+    
+    <h5>load(URL,data,callback) </h5>
+    <p>This method of jquery which helps to load the url or any kind of file and its take data as key - value and call back function which excutes once the load of url completes </p>
+    <hr>
+    <hr>
+  
+    <div >
+       <p>List users</p>
+       <p id="listusers"></p>
+    </div>
+    <button type="button" onclick="submitBtn()">Load data</button>
+
+    <script>
+        function submitBtn(){
+                // alert("clicked")
+                $('#listusers').load('https://jsonplaceholder.typicode.com/todos/1',function(responseTxt, statusTxt, xhr){
+                    alert(statusTxt);
+                    
+                });
+            }
+    </script>
+</body>
+</html>

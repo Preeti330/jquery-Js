@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>$.post(url,reqdata,callback) :</h1>
+    <p>post  - uses for fetching the data, and maily used for posting data into server</p>
+    <hr>
+    <h1>$.post(url,request,callback,datatype) :</h1>
+    <p>post  - we can even pass the request data as well.</p>
+    <p>datatype : is what kind of data we are sending </p>
+    <p>when we send request data in body in jquery which converts reqdata into a string using JSON>stringfy automatically unless as in fetch we explicilty need to convert it into string  </p>
+    <p>data type if we are sending in jSON or other format need to switch to $.ajax</p>
+    <p>it does serialization on its request </p>
+    <hr>
+    <hr>
+  
+    <div >
+       <p>Add users</p>
+       <p id="listusers">user with details</p>
+    </div>
+    <button type="button" onclick="submitBtn()">ADD data</button>
+
+    <script>
+        function submitBtn(){
+
+            let data = {
+                        title: 'I am in love with someone.',
+                        userId: 5
+                    }
+        
+                $.post('https://dummyjson.com/posts/add',data,function(responseTxt,statusTxt,xhr){
+                        console.log(responseTxt)
+                        $('#listusers').text(responseTxt['id'])
+                })
+            }
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+  
+    <ul>
+        <li>
+            
+            $.ajaxSetup(options) : sets the default values for ajax request,as in url , datatype,headers etc it can be mpdifed when we over ridden the method other voice it will be same for all request
+            <ul>
+                <li>
+                   <pre><code> $.ajaxSetup({
+                    headers: {
+                        'Authorization': 'Bearer your_token_here',
+                        'Content-Type': 'application/json'
+                    }
+                });</code></pre>
+                </li>
+                <li>
+                    <pre><code> $.ajaxSetup({
+                        timeout: 5000 
+                 });</code></pre>
+                 </li>
+                 <li>
+                    <pre><code> $.ajaxSetup({
+                        dataType : json
+                 });</code></pre>
+                 </li>
+                 <li>
+                    <pre><code> $.ajaxSetup({
+                        error : function(error){
+                            console.log("Error "+ error)
+                        }
+                 });</code></pre>
+                 </li>
+            </ul>
+        </li>
+        <li>
+            <hr>
+            <hr>
+        </li>
+        <li>
+            $.ajaxError() : runs when sme error happens 
+            <ul>
+                <li>
+                    <pre>
+                        <code>
+                            $.ajaxError(function(error){
+                                console.log("Error "+error);
+                            })
+                        </code>
+                    </pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <hr>
+        </li>
+        <li>
+            <ul>
+                <li>
+                    $.ajaxCompletes() : excutes when ajax completes its excetuions
+                </li>
+            </ul>
+        </li>
+    </ul>
+    
+    <hr>
+    <hr>
+  
+    <div >
+       <p>List users</p>
+       <p id="listusers">userId : </p>
+    </div>
+    <button type="button" onclick="submitBtn()">Load data</button>
+
+    <script>
+        function submitBtn(){
+        
+                $.get('https://jsonplaceholder.typicode.com/todos/1',function(responseTxt,statusTxt,xhr){
+                        console.log(responseTxt)
+                        $('#listusers').text(responseTxt['userId'])
+                })
+            }
+    </script>
+</body>
+</html>
